@@ -325,8 +325,8 @@ img{max-width:100%;display:block}
 }
 
 /* ===== СТРАНИЦА ПРОЕКТА (work/*.html) ===== */
-.work{max-width:var(--maxw);margin:0 auto;padding:140px 28px 110px}
-.work__back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin-bottom:28px;transition:color .2s}
+.work{max-width:var(--maxw);margin:0 auto;padding:36px 28px 110px}
+.work__back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin-bottom:20px;transition:color .2s}
 .work__back:hover{color:var(--accent)}
 .work__player{width:100%;border-radius:var(--radius);overflow:hidden;background:#000;margin-bottom:36px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .work__player video{width:100%;display:block;aspect-ratio:16/9}
@@ -341,7 +341,7 @@ img{max-width:100%;display:block}
 .work__crew li{font-size:14px;color:var(--text)}
 .work__crew li b{color:var(--muted);font-weight:500}
 @media(max-width:600px){
-  .work{padding:110px 20px 70px}
+  .work{padding:24px 20px 70px}
   .work__crew ul{grid-template-columns:1fr}
 }
 
