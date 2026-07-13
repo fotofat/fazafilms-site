@@ -1,10 +1,14 @@
 // ===== ФАЗА — интерактив сайта =====
 // порядок портфолио: закреплённые (pin, по возрастанию) первыми, дальше НОВЫЕ проекты первыми (vimeo-id растёт со временем → сорт по убыванию)
+// прототип страниц проекта — пока сделаны только эти 3, у них своя страница (work/<id>.html) вместо ссылки на Vimeo
+const PAGES = new Set(['1144082517', '1147611345', '1193108997']);
+// ВРЕМЕННО: портфолио ограничено этими же 3 карточками, чтобы обкатать формат страницы проекта,
+// прежде чем разворачивать на все 253. Убрать .slice(0, 3), когда решим делать страницы для всех.
 const SEL = (window.SELECTION || []).slice().sort((a, b) => {
   const pa = a.pin ?? Infinity, pb = b.pin ?? Infinity;
   if (pa !== pb) return pa - pb;
   return Number(b.id) - Number(a.id);
-});
+}).slice(0, 3);
 const grid = document.getElementById('grid');
 const moreBtn = document.getElementById('moreBtn');
 const filters = document.getElementById('filters');
@@ -17,7 +21,10 @@ const filtered = () => curFilter === 'all' ? SEL : SEL.filter(s => s.cat === cur
 
 function cardHTML(s) {
   const webp = s.poster.replace(/\.jpg$/, '.webp');
-  return `<a class="card" data-cat="${s.cat}" href="${s.vimeo}" target="_blank" rel="noopener" title="${esc(s.title)}">
+  const hasPage = PAGES.has(String(s.id));
+  const href = hasPage ? `work/${s.id}.html` : s.vimeo;
+  const linkAttrs = hasPage ? '' : ' target="_blank" rel="noopener"';
+  return `<a class="card" data-cat="${s.cat}" href="${href}"${linkAttrs} title="${esc(s.title)}">
     <picture>
       <source srcset="${webp}" type="image/webp">
       <img class="card__img" loading="lazy" src="${s.poster}" alt="${esc(s.title)}" width="480" height="270">
