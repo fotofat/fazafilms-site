@@ -25,14 +25,18 @@ function cardHTML(s) {
   const href = hasPage ? `work/${s.id}.html` : s.vimeo;
   const linkAttrs = hasPage ? '' : ' target="_blank" rel="noopener"';
   return `<a class="card" data-cat="${s.cat}" href="${href}"${linkAttrs} title="${esc(s.title)}">
-    <picture>
-      <source srcset="${webp}" type="image/webp">
-      <img class="card__img" loading="lazy" src="${s.poster}" alt="${esc(s.title)}" width="480" height="270">
-    </picture>
-    <video class="card__vid" muted loop playsinline preload="none" data-src="assets/previews/${s.id}.mp4"></video>
-    <span class="card__cat">${esc(s.cat_ru)}</span>
-    <h3 class="card__title">${esc(s.title)}</h3>
-    <span class="card__play">▶&nbsp;смотреть</span>
+    <div class="card__media">
+      <picture>
+        <source srcset="${webp}" type="image/webp">
+        <img class="card__img" loading="lazy" src="${s.poster}" alt="${esc(s.title)}" width="480" height="270">
+      </picture>
+      <video class="card__vid" muted loop playsinline preload="none" data-src="assets/previews/${s.id}.mp4"></video>
+      <span class="card__play">▶</span>
+    </div>
+    <div class="card__body">
+      <span class="card__cat">${esc(s.cat_ru)}</span>
+      <h3 class="card__title">${esc(s.title)}</h3>
+    </div>
   </a>`;
 }
 
