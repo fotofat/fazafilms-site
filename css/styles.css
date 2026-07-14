@@ -340,9 +340,16 @@ img{max-width:100%;display:block}
 .work__crew ul{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;list-style:none}
 .work__crew li{font-size:14px;color:var(--text)}
 .work__crew li b{color:var(--muted);font-weight:500}
+.work__related,.work__behance{margin-top:44px;padding-top:34px;border-top:1px solid var(--line);max-width:900px}
+.work__related h3,.work__behance h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;font-weight:600}
+.work__related .work__player{margin-bottom:12px;box-shadow:none}
+.work__related-title{color:var(--muted);font-size:15px}
+.work__behance-embed{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.work__behance-embed iframe{width:100%;display:block;border:0;min-height:800px}
 @media(max-width:600px){
   .work{padding:24px 20px 70px}
   .work__crew ul{grid-template-columns:1fr}
+  .work__behance-embed iframe{min-height:520px}
 }
 
 /* ── форма брифа: аудио + капча ── */
